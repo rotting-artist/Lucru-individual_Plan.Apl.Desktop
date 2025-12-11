@@ -1,0 +1,1 @@
+# Lucru-individual_Plan.Apl.Desktop
