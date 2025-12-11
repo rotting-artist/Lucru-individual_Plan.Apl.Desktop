@@ -1,0 +1,36 @@
+@startuml
+left to right direction
+skinparam actorStyle awesome
+
+actor Student
+actor Administrator as Admin
+
+rectangle "Jurnal Financiar pentru Studenți" {
+  usecase UC1 as "Autentificare"
+  usecase UC2 as "Adaugă/Editează Tranzacție"
+  usecase UC3 as "Vizualizează Balanța/Fluxul"
+  usecase UC4 as "Generează Raport Săptămânal"
+  usecase UC5 as "Setează Obiectiv de Economisire"
+  
+  usecase UC6 as "Gestionează Conturi Utilizatori"
+  usecase UC7 as "Monitorizează Log-uri de Securitate"
+  usecase UC8 as "Gestionează Criptarea Datelor"
+}
+
+' Relațiile Studentului
+Student -- UC1
+Student -- UC2
+Student -- UC3
+Student -- UC4
+Student -- UC5
+
+' Relațiile Administratorului
+Admin -- UC1
+Admin -- UC6
+Admin -- UC7
+Admin -- UC8
+
+' Relațiile de Generalizare/Extindere (O opțiune de nota 10+)
+UC4 <. (Generează Raport Săptămânal) : includes
+(Vizualizează Balanța/Fluxul) <. UC4 : extends
+@endumll
