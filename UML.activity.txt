@@ -1,0 +1,31 @@
+@startuml
+skinparam activityFontSize 14
+skinparam activityStyle autolink
+
+start
+:Utilizatorul (Student) accesează Modulul Rapoarte;
+
+:Selectează Filtru: "Săptămânal";
+
+:Sistemul preia tranzacțiile din baza de date \n(cu decriptare, conform cerinței non-funcționale);
+
+if (Datele au fost decriptate cu succes?) then (Nu)
+  :Afișează Eroare de Securitate/Acces;
+  stop
+else (Da)
+  :Calculează Total Venituri Săptămânale;
+  :Calculează Total Cheltuieli Săptămânale;
+  :Determinare Balanță Săptămânală;
+  
+  if (Balanța este Negativă?) then (Da)
+    :Generează Avertisment Bugetar;
+  else (Nu)
+  endif
+  
+  :Creează vizualizările grafice necesare \n(ex: grafic Donut pentru cheltuieli);
+  
+  :Afișează Raportul Săptămânal Complet;
+endif
+
+stop
+@endumll
